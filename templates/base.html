@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base/layout.css' %}">
+
+    {% block extra_css %} {% endblock %}
+</head>
+<body>
+    <h1>ComputNet</h1>
+
+
+        <section>
+        <aside class="lateral1">
+            <h1>ComputNet</h1>
+       <ul>
+                <li><a href="{% url 'web:home' %}"><i class="bi bi-house"></i><span>Home</span></a></li>
+                <li><a href="#"><i class="bi bi-briefcase"></i><span>Agenda</span></a></li>
+                <li><a href="#"><i class="bi bi-people"></i><span>Treinos</span></a></li>
+                <li><a href="#"><i class="bi bi-chat-right-text"></i><span>Contato</span></a></li>
+                <li>
+                    <a href="{% url 'usuarios:aluno_lista' %}">
+                        <i class="bi bi-chat-right-text"></i>
+                        <span class="menu-label">Aluno</span>
+                    </a>
+                </li>
+        </ul>
+
+    </aside>
+        </section>
+     <header class="barra-superior">
+                <button class="botao">☰</button>
+                <h1 class="Logo"> ComputNet</h1>
+                <div class="conta">
+    <button onclick="abrirMenu()">Adicionar Conta 👤</button>
+
+    <div id="menuConta" class="menu-conta">
+        <button>Criar conta</button>
+        <button>Adicionar conta</button>
+        <button>Entrar</button>
+    </div>
+</div>
+     </header>
+
+    <main class="content">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+     <footer class="rodape">
+    <p>© 2026 ComputNet - Todos os direitos reservados</p>
+</footer>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+{% block extra_js %} {% endblock %}
+
+</body>
+</html>
